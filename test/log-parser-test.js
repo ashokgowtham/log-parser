@@ -1,25 +1,35 @@
 var vows = require('vows'),
     assert = require('assert');
 
-// Create a Test Suite
-vows.describe('Division by Zero').addBatch({
-    'when dividing a number by zero': {
-        topic: function () { return 42 / 0 },
+var LogParser = require('../log-parser').LogParser;
 
-        'we get Infinity': function (topic) {
-            assert.equal (topic, Infinity);
+
+// Create a Test Suite
+vows.describe('log-parser').addBatch({
+    'requiring log-parser module': {
+        topic: function () { return require('../log-parser').LogParser },
+
+        'should return a LogParser class.': function (topic) {
+            assert.equal (topic.name, "LogParser");
         }
     },
-    'but when dividing zero by zero': {
-        topic: function () { return 0 / 0 },
+    'log-parser class': {
+        topic: function () { return LogParser },
 
-        'we get a value which': {
-            'is not a number': function (topic) {
-                assert.isNaN (topic);
-            },
-            'is not equal to itself': function (topic) {
-                assert.notEqual (topic, topic);
+        'when constructed with new': {
+            topic: function (type) { return new type() },
+
+            'should contruct a log-parser object': function (object) {
+                assert.instanceOf (object, LogParser);
             }
-        }
+        },
+        'when called like a function': {
+            topic: function (type) { return type() },
+
+            'should contruct a log-parser object': function (object) {
+                assert.instanceOf (object, LogParser);
+            }
+        },
     }
+
 }).export(module);

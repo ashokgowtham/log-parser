@@ -1,0 +1,27 @@
+requiring log-parser module
+	should return a log-parser class.
+log-parser class
+	when constructed with new
+		should contruct a log-parser object
+	when called like a function
+		should contruct a log-parser object
+
+the log-parser object 
+	is a transform stream.
+	accepts a piped stream
+		and allows chained piping
+		and emits the same data back again.
+	accepts streaming in NSCA logs
+		and emits log events.
+			The log event
+				contains ip field
+				contains userIdentifier field
+				contains userId field
+				contains dateTime field
+				contains date field
+				contains time field
+				contains httpVerb field
+				contains url field
+				contains httpProtocol field
+				contains httpStatusCode field
+				contains responseSize field
