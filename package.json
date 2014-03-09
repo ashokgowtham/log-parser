@@ -1,0 +1,10 @@
+{
+	"name":"log-parser",
+	"scripts":{
+		"test":"node ./node_modules/vows/bin/vows",
+		"start":"node log-parser"
+		},
+	"devDependencies":{
+		"vows":"0.7.0"
+	}
+}
