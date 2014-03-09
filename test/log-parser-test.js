@@ -11,7 +11,7 @@ vows.describe('Division by Zero').addBatch({
         }
     },
     'but when dividing zero by zero': {
-        topic: function () { return 1 / 0 },
+        topic: function () { return 0 / 0 },
 
         'we get a value which': {
             'is not a number': function (topic) {
