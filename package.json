@@ -5,6 +5,8 @@
 		"start":"node log-parser"
 		},
 	"devDependencies":{
-		"vows":"0.7.0"
-	}
+		"vows":"0.7.x",
+		"pipette":"0.9.x"
+	},
+	"repository": "https://github.com/ashokgowtham/log-parser.git"
 }
