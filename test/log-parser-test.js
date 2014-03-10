@@ -1,4 +1,6 @@
 var vows = require('vows'),
+    stream = require('stream'),
+    pipette = require('pipette'),
     assert = require('assert');
 
 var LogParser = require('../log-parser').LogParser;
@@ -30,6 +32,13 @@ vows.describe('log-parser').addBatch({
                 assert.instanceOf (object, LogParser);
             }
         },
+    },
+    'the log-parser object': {
+        topic: function () { return new LogParser() },
+
+        'is a transform stream.': function (object) {
+            assert.instanceOf(object,stream.Transform);
+        }
     }
 
 }).export(module);
